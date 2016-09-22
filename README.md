@@ -4,7 +4,7 @@ Quite frequently I need to create simple CLI interfaces for the programs I write
 
 Example:
 
->>> import yesno
->>> yesno.input_to_bool('Do you like pancakes', default='yes')
-Do you like pancakes[yes]? no
-False
+    >>> import yesno
+    >>> yesno.input_to_bool('Do you like pancakes', default='yes')
+    Do you like pancakes[yes]? no
+    False
