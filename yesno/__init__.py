@@ -6,6 +6,8 @@ NO = False
 INVALID = None
 
 def str_to_bool(s):
+    """Turns a string to a boolean or None if the supplied string doesn't match
+the value of yes, no, y or n (case insensitive)."""
     s = s.strip()
     if (s.lower() == YES_S) | (s.lower() == YES_S[0]):
         return YES
@@ -16,6 +18,19 @@ def str_to_bool(s):
 
 def input_to_bool(query, default='', exit_on_sigint=True, punctuation='?',
                   return_string=False):
+    """Queries the user via stdin/stdout for yes or no, returns the equivalent
+boolean.
+
+
+    Arguments:
+    query          -- The question to ask the user
+    default        -- The default answer to expect from the user
+                      default('' no default)
+    exit_on_sigint -- Determines whether to exit after a SIGINT or to raise
+                      KeyboardInterruptException
+    punctuation    -- What kind of punctuation to terminate the query with
+    return_string  -- Whether to return the user input with the boolean value.
+"""
     try:
         if default:
             string = input('{}[{}]{} '.format(query, default, punctuation))
@@ -35,6 +50,17 @@ def input_to_bool(query, default='', exit_on_sigint=True, punctuation='?',
 
 def input_until_bool(query, error='{} is not one of {}', default='',
                      exit_on_sigint=True, punctuation='?'):
+    """Works like input_to_bool except it retries if the answer is invalid.
+
+
+    Arguments:
+    query          -- The question to ask the user
+    error          -- The error message to print when a invalid answer is given
+                      default('' no default)
+    exit_on_sigint -- Determines whether to exit after a SIGINT or to raise
+                      KeyboardInterruptException
+    punctuation    -- What kind of punctuation to terminate the query with"""
+
     while True:
         result = input_to_bool(query, default, exit_on_sigint, punctuation, True)
         if result[1] is not None:
