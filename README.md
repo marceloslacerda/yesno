@@ -12,3 +12,8 @@ Example:
     >>> yesno.input_to_bool('Do you like pancakes', default='yes')
     Do you like pancakes[yes]? no
     False
+
+## WARNING
+
+In my projects I have switched to [conz](https://pypi.python.org/pypi/conz)
+so this project is no longer going to be maintained.
