@@ -1,4 +1,9 @@
-__version__ = '0.0.0'
+import sys
+
+if sys.version_info[0] == 2:
+    input = raw_input
+
+__version__ = '0.0.1'
 YES_S = 'yes'
 NO_S = 'no'
 YES = True
