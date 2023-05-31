@@ -13,7 +13,7 @@ with io.open(path.join(here, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name="yesno",
+    name="msl09_yesno",
     version=__version__,
     description="A module that provides common functions for yes/no CLI queries",
     author="Marcelo Lacerda",
